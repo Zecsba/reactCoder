@@ -1,4 +1,5 @@
 import { useState } from "react";
+import CartWidget from "./CartWidget";
 
 const NavBar = () => {
   const [open, setOpen] = useState(true);
@@ -8,7 +9,7 @@ const NavBar = () => {
   ];
 
   return (
-    <div className="flex">
+    <div className="itemNavBar flex">
       <div
         className={` ${
           open ? "w-72" : "w-20 "
@@ -32,7 +33,7 @@ const NavBar = () => {
               !open && "scale-0"
             }`}
           >
-            Designer
+            Zecsba
           </h1>
         </div>
         <ul className="pt-6">
@@ -53,6 +54,9 @@ const NavBar = () => {
             </li>
           ))}
         </ul>
+      </div>
+      <div className="h-screen flex-1 p-3">
+        <h1 className="text-2xl font-semibold "><CartWidget /></h1>
       </div>
     </div>
   )
