@@ -1,14 +1,14 @@
 import { useState } from "react"
 
-const ItemCount = () =>{ 
+const ItemCount = ({stock, initial}) =>{ 
     const [number, setNumber] = useState(0)
 
     const increment = () => {
-        if(number < 5) setNumber(number + 1)
+        if(number < stock) setNumber(number + 1)
     }
 
     const decrement = () =>{
-        if(number > 0) setNumber(number - 1)
+        if(number > initial) setNumber(number - 1)
     }
 
     const window = () =>{
