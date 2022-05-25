@@ -1,15 +1,16 @@
 import { useState } from "react";
 import CartWidget from "./CartWidget";
+import ItemListContainer from './ItemListContainer';
 
 const NavBar = () => {
   const [open, setOpen] = useState(true);
   const Menus = [
     { title: "Inicio", src: "home-free-icon-font", link: "#"},
-    { title: "Libros", src: "book-free-icon-font"}
+    { title: "Telas", src: "book-free-icon-font"}
   ];
 
   return (
-    <div className="itemNavBar flex">
+    <div className="itemNavBar flex ">
       <div
         className={` ${
           open ? "w-72" : "w-20 "
@@ -56,7 +57,13 @@ const NavBar = () => {
         </ul>
       </div>
       <div className="h-screen flex-1 p-3">
-        <h1 className="text-2xl font-semibold "><CartWidget /></h1>
+        <h1 className="text-2xl font-semibold ">
+          <CartWidget />
+
+          <ItemListContainer
+            title="Desde el componente Navbar hacia el ItemListContainer"
+          />
+          </h1>
       </div>
     </div>
   )
