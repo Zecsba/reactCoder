@@ -1,5 +1,5 @@
 
-const Products = [
+const products = [
         {
             id: 1,
             stock: 28,
@@ -57,8 +57,7 @@ const Products = [
             descriptionThree: "Minimo de compra 1m.",
             price: "31.920",
             src: "https://audaces.com/wp-content/uploads/2020/08/helanca-fabric-450x300.jpg"
-        },
+        }   
     ]
 
-
-    export default Products
+export default products

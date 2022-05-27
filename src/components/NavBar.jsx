@@ -1,6 +1,7 @@
 import { useState } from "react";
 import CartWidget from "./CartWidget";
 import ItemListContainer from './ItemListContainer';
+import ItemDetailContainer from "./ItemDetailContainer";
 
 const NavBar = () => {
   const [open, setOpen] = useState(true);
@@ -60,9 +61,8 @@ const NavBar = () => {
         <h1 className="text-2xl font-semibold ">
           <CartWidget />
 
-          <ItemListContainer
-            title="Desde el componente Navbar hacia el ItemListContainer"
-          />
+          <ItemListContainer/>
+          {/* <ItemDetailContainer /> */}
           </h1>
       </div>
     </div>

@@ -1,23 +1,24 @@
 import { useEffect, useState } from "react"
-// import ItemCount from "./ItemCount"
-import ItemList from "./ItemList"
 import imprimir from "../utils/Imprimir"
 import products from "../utils/products"
+import ItemDitail from "./ItemDetail"
 
-const ItemListContainer = () =>{
+const ItemDetailContainer = () =>{
+
     const [datosProducts, setDatosProducts] = useState([])
 
         useEffect(() => {         
-            imprimir(2000, products)
+            imprimir(2000, products[2])
             .then(dates => setDatosProducts(dates))
             .catch(err => console.log(err))
-        })
+    })
 
     return(
-        <div className="itemList">
-            <ItemList items={datosProducts} />
+        <div>
+            <ItemDitail items={datosProducts}/>
         </div>
     )
+        
 }
 
-export default ItemListContainer
+export default ItemDetailContainer

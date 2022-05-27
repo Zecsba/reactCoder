@@ -14,12 +14,15 @@ const ItemCount = ({stock, initial, onAdd}) =>{
 
     return(
         <div className="flex">
-                <button onClick={decrement} className="bg-slate-200 p-1 m-2"> - </button>
-                <p>{number}</p>
-                <button onClick={increment} className="bg-slate-200 p-1 m-2"> + </button>
+                <div className="flex items-center text-white">
+                    <button onClick={decrement} className="bg-blue-700 p-1 m-2 rounded text-white"> - </button>
+                    <p>{number}</p>
+                    <button onClick={increment} className="bg-blue-700 p-1 m-2 rounded text-white"> + </button>
+                </div>
+                
 
                 {
-                number ? <button className="p-2 text-white bg-stone-600 border-stone-600 rounded-full border-2" onClick={() => onAdd(number)}>Agregar al carrito</button> : <button className="text-white cursor-not-allowed underline-offset-2 p-2  bg-stone-700 border-stone-700 rounded-full border-2 disabled:opacity-80" disabled>No tienes articulos aun</button>
+                number ? <button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 m-2" onClick={() => onAdd(number)}>Agregar al carrito</button> : <button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 cursor-not-allowed opacity-75 m-2" disabled>No tienes articulos aun</button>
                 }
         </div>
     )
