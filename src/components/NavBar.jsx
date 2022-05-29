@@ -1,14 +1,9 @@
 import { useState } from "react";
 import CartWidget from "./CartWidget";
-import ItemListContainer from './ItemListContainer';
-import ItemDetailContainer from "./ItemDetailContainer";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   const [open, setOpen] = useState(true);
-  const Menus = [
-    { title: "Inicio", src: "home-free-icon-font", link: "#"},
-    { title: "Telas", src: "book-free-icon-font"}
-  ];
 
   return (
     <div className="itemNavBar flex ">
@@ -23,47 +18,45 @@ const NavBar = () => {
            border-2 rounded-full  ${!open && "rotate-180"}`}
           onClick={() => setOpen(!open)}
         />
-        <div className="flex gap-x-4 items-center">
-          <img
-            src="./src/assets/LogoVectorizado.png"
-            className={`cursor-pointer duration-500 ${
-              open && "rotate-[360deg]"
-            }`}
-          />
-          <h1
-            className={`text-white origin-left font-medium text-xl duration-200 ${
-              !open && "scale-0"
-            }`}
-          >
-            Zecsba
-          </h1>
-        </div>
+
+        <Link to="/">
+          <div className="flex gap-x-4 items-center">
+            <img src="./src/assets/LogoVectorizado.png" className={`cursor-pointer duration-500 ${open && "rotate-[360deg]"}`}/> 
+            <h1
+              className={`text-white origin-left font-medium text-xl duration-200 ${
+                !open && "scale-0"
+              }`}>
+              Zecsba
+            </h1>
+          </div>
+        </Link>
         <ul className="pt-6">
-          {Menus.map((Menu, index) => (
-            <li
-              key={index}
-              className={`flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-300 text-sm items-center gap-x-4 
-              ${Menu.gap ? "mt-9" : "mt-2"} ${
-                index === 0 && "bg-light-white"
-              } `}
-            >
-              <a href={`${Menu.link}`} className="flex">
-                <img src={`./src/assets/${Menu.src}.png`} className="mr-5 w-5 h-5"/>
-                <span className={`${!open && "hidden"} origin-left duration-200 text-base`}>
-                  {Menu.title}                
-                </span>
-              </a>
-            </li>
-          ))}
+            <Link to="/category/101">
+                <li className={`flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-300 text-sm items-center gap-x-4`}>
+                      <div className="flex">
+                        <img src={`./src/assets/home-free-icon-font.png`} className="mr-5 w-5 h-5"/>
+                        <span className={`${!open && "hidden"} origin-left duration-200 text-base`}>
+                          Sedas Finas               
+                        </span>
+                      </div>
+                </li>
+            </Link>
+
+            <Link to="/category/102">
+                <li className={`flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-300 text-sm items-center gap-x-4`}>
+                    <div className="flex">
+                      <img src={`./src/assets/book-free-icon-font.png`} className="mr-5 w-5 h-5"/>
+                      <span className={`${!open && "hidden"} origin-left duration-200 text-base`}>
+                        Telas Rugosas         
+                      </span>
+                    </div>
+                </li>
+            </Link>       
         </ul>
       </div>
-      <div className="h-screen flex-1 p-3">
-        <h1 className="text-2xl font-semibold ">
-          <CartWidget />
 
-          <ItemListContainer/>
-          {/* <ItemDetailContainer /> */}
-          </h1>
+      <div className="m-7">
+        <CartWidget />
       </div>
     </div>
   )
