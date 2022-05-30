@@ -14,7 +14,7 @@ const ItemCount = ({stock, initial, onAdd}) =>{
 
     return(
         <div className="flex">
-                <div className="flex items-center text-white">
+                <div className="flex items-center text-gra-900">
                     <button onClick={decrement} className="bg-blue-700 p-1 m-2 rounded text-white"> - </button>
                     <p>{number}</p>
                     <button onClick={increment} className="bg-blue-700 p-1 m-2 rounded text-white"> + </button>
