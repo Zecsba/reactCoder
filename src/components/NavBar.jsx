@@ -6,7 +6,7 @@ const NavBar = () => {
   const [open, setOpen] = useState(true);
 
   return (
-    <div className="itemNavBar flex ">
+    <div className="flex">
       <div
         className={` ${
           open ? "w-72" : "w-20 "

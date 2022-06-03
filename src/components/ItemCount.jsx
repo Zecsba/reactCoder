@@ -11,7 +11,7 @@ const ItemCount = ({stock, initial, onAdd}) =>{
     const decrement = () =>{
         if(number > initial) setNumber(number - 1)
     }
-
+    
     return(
         <div className="flex">
                 <div className="flex items-center text-gra-900">
