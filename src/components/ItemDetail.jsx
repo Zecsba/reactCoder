@@ -1,14 +1,20 @@
 import ItemCount from './ItemCount'
+import { useState } from "react"
+import ItemCountReplace from './ItemCountReplace'
 
 const ItemDitail = ({items}) =>{
+
+        const [itemCount, setItemCount] = useState(0)
 
         const number = (object) =>{
                 Swal.fire({
                         title: `${items.title}`,
                         text: `La cantidad de objetos agregados son: ${object}`,
                         icon: 'success',
-                        confirmButtonText: 'Cool'
+                        confirmButtonText: 'Ir a carrito'
                       })
+
+                setItemCount(object)
         }
 
     return(
@@ -26,7 +32,7 @@ const ItemDitail = ({items}) =>{
                 <div className="flex justify-between items-center">
                         <span className="text-3xl font-bold text-gray-900 dark:text-gray-900"> ${items.price}</span>
                 </div>
-                <ItemCount stock={items.stock} initial="0" onAdd={number}/> 
+                { itemCount === 0 ? <ItemCount stock={items.stock} initial="0" onAdd={number}/>  : <ItemCountReplace />} 
                 </div>
             </div>
     )
