@@ -8,8 +8,6 @@ const ItemListContainer = () =>{
     const [datosProducts, setDatosProducts] = useState([])
     const {idcategory} = useParams()
 
-    console.log(idcategory)
-
         useEffect(() => {         
             imprimir(0, products.filter(item =>  {
                 if(idcategory == undefined) return item;
