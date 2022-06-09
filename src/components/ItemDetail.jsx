@@ -1,10 +1,12 @@
+import { useState, useContext } from "react"
 import ItemCount from './ItemCount'
-import { useState } from "react"
 import ItemCountReplace from './ItemCountReplace'
+import { CartContext } from '../Context/CartContext';
 
 const ItemDitail = ({items}) =>{
 
         const [itemCount, setItemCount] = useState(0)
+        const test = useContext(CartContext);
 
         const number = (object) =>{
                 Swal.fire({
@@ -15,6 +17,8 @@ const ItemDitail = ({items}) =>{
                       })
 
                 setItemCount(object)
+                // Agregar el producto
+                test.addToCart(items, object)
         }
 
     return(
