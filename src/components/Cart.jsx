@@ -9,6 +9,8 @@ const Cart = () =>{
 
     return(
         <div className='w-full md:h-[60rem] overflow-y-auto flex flex-col'>
+
+
             {test.cartList.length > 0 && test.cartList.map((item) => 
 
             <div key={item.idItem} className="flex flex-col md:flex-row bg-slate-300 rounded-lg m-5 md:w-4/12 sm:w-3/12">
@@ -19,18 +21,24 @@ const Cart = () =>{
 
                     <div className='flex flex-col justify-center'>
                         <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white text-center md:text-left">{item.titleItem}</h5>
-                        <span className='text-center'>Precio: {item.priceItem}</span>
+                        <span className='text-center'>Precio: <span className='tracking-wide'>{item.priceItem}</span></span>
                         <span className='text-center'>Cantidad solicitada: {item.cantidadItem}</span>
                     </div>
                     
                     
                      <div className='m-auto '>
-                        <button className='p-2 bg-red-600 hover:bg-red-700 rounded-md flex flex-row m-4' onClick={() => test.deleteItem(item.idItem)}>Delete <Basura/></button>
+                        <button className='p-2 bg-red-600 hover:bg-red-700 rounded-md flex flex-row m-4' onClick={() => test.deleteItem(item.idItem)}> Delete <Basura/></button>
                      </div>
-                   
-                
+
+                     <p className='tracking-wide'>{test.sumaProducts(item.idItem)}</p>
             </div>
             )}
+
+            {test.cartList.length > 0 && 
+            
+            <div className="bg-slate-300 absolute right-0 m-20 p-5">
+                <p className='tracking-wide'>{test.sumaTotalProduct()}</p>    
+            </div>}
 
             { test.cartList.length > 0 
             ? 
