@@ -1,21 +1,23 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import { firestoreFetch } from "../utils/FirestoreFetch"
 import ItemList from "./ItemList"
-import imprimir from "../utils/Imprimir"
-import products from "../utils/products"
 
 const ItemListContainer = () =>{
     const [datosProducts, setDatosProducts] = useState([])
     const {idcategory} = useParams()
 
         useEffect(() => {         
-            imprimir(0, products.filter(item =>  {
-                if(idcategory == undefined) return item;
-                return item.idcategory == parseInt(idcategory)
-            }))
-            .then(dates => setDatosProducts(dates))
-            .catch(err => console.log(err))
+            firestoreFetch(idcategory)
+            .then(result => setDatosProducts(result))
+            .catch(err => console.log(err));
         }, [idcategory])
+
+        useEffect(() => {
+            return (() => {
+                setDatosProducts([]);
+            })
+        }, []);
 
     return(
         <div className="itemList">
