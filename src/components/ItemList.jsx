@@ -7,9 +7,7 @@ const ItemList = ({items}) =>{
             { items.length > 0
                 ? items.map(item => 
                     <Item
-                        key={item.id} 
-                        items={item}
-                    />                  
+                        key={item.id} items={item}/>                  
                 ) 
                 :
                 <div className="text-center"><Spiner /></div>
