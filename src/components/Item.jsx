@@ -9,7 +9,7 @@ const Item = ({items}) =>{
                     <div className="px-5 pb-5 text-center">
                             <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white uppercase mb-3">
                                 <Link to={`/item/${items.id}`}> {items.title} </Link>
-                            </h5>    
+                            </h5>
                     <div className="flex justify-between items-center flex-col md:flex-row">
                             <span className="text-3xl font-bold text-gray-900 dark:text-white mb-5 md:m-0"> ${items.price}</span>
                             <Link to={`/item/${items.id}`}>

@@ -44,6 +44,11 @@ const CartContextProvider = ({children}) =>{
         return totalForitem.reduce((previousValue, currentValue) => previousValue + currentValue)
     }
 
+    const calcItemsQty = () =>{
+        let cantidadItems = cartList.map(item =>item.cantidadItem);
+        return cantidadItems.reduce(((previousValue, currentValue)  => previousValue + currentValue), 0)
+    }
+
     return(
         <CartContext.Provider value={{
             cartList, 
@@ -51,7 +56,8 @@ const CartContextProvider = ({children}) =>{
             removeList, 
             deleteItem, 
             sumaProducts,
-            sumaTotalProduct
+            sumaTotalProduct,
+            calcItemsQty
             }}>
 
             {children}

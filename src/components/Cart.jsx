@@ -2,10 +2,51 @@ import { useContext, useEffect } from 'react';
 import { CartContext } from '../Context/CartContext';
 import Basura from '../icons/Basura';
 import { Link } from 'react-router-dom';
+import { collection, serverTimestamp, setDoc, doc, updateDoc, increment } from 'firebase/firestore';
+import db from '../utils/firebaseConfig';
 
 const Cart = () =>{
 
     const test = useContext(CartContext);
+
+    const createOrder = () => {
+
+        const itemsForDB = test.cartList.map(item => ({
+            id: item.idItem,
+            price: item.priceItem,
+            title: item.titleItem,
+            qty: item.cantidadItem
+        }))
+
+        let order = {
+            buyer: {
+                email: 'correo@correo.com',
+                name: 'Persona Correo',
+                phone: '32033232'
+            },
+            items: itemsForDB,
+            date: serverTimestamp(),
+            toal: test.sumaTotalProduct()
+        }
+
+        const createInFirestore = async () =>{
+            const newOrderRef = doc(collection(db, "orders"));
+            await setDoc(newOrderRef, order)
+            return newOrderRef;
+        }
+
+        createInFirestore()
+        .then(result => alert('Su id de order es' + result.id))
+        .catch(err => console.log(err))
+
+
+        test.cartList.forEach( async (item) => {
+            const itemRef = doc(db, "products", item.idItem)
+            await updateDoc(itemRef, {stock: increment(-item.cantidadItem)})
+        })
+
+        test.removeList()
+    }
 
     return(
         <div className='w-full md:h-[60rem] overflow-y-auto flex flex-col'>
@@ -23,6 +64,7 @@ const Cart = () =>{
                         <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white text-center md:text-left">{item.titleItem}</h5>
                         <span className='text-center'>Precio: <span className='tracking-wide'>{item.priceItem}</span></span>
                         <span className='text-center'>Cantidad solicitada: {item.cantidadItem}</span>
+                        <p className='tracking-wide'>Total: {test.sumaProducts(item.idItem)}</p>
                     </div>
                     
                     
@@ -30,14 +72,18 @@ const Cart = () =>{
                         <button className='p-2 bg-red-600 hover:bg-red-700 rounded-md flex flex-row m-4' onClick={() => test.deleteItem(item.idItem)}> Delete <Basura/></button>
                      </div>
 
-                     <p className='tracking-wide'>{test.sumaProducts(item.idItem)}</p>
             </div>
             )}
 
             {test.cartList.length > 0 && 
             
-            <div className="bg-slate-300 absolute right-0 m-20 p-5">
-                <p className='tracking-wide'>{test.sumaTotalProduct()}</p>    
+            <div className="bg-slate-300 absolute right-0 m-20 p-5 rounded-md flex flex-col">
+                <div className='p-1'>
+                    <span className='uppercase font-medium'>Total:</span> {test.sumaTotalProduct()}
+                </div>
+
+                <button className='p-2 bg-blue-700 text-white rounded-lg' onClick={createOrder}>¡Comprar!</button>
+                
             </div>}
 
             { test.cartList.length > 0 

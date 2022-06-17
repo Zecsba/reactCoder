@@ -35,6 +35,8 @@ const ItemDitail = ({items}) =>{
                         <p> <span className='text-lg font-bold'>Mas info</span>: {items.descriptionThree}</p>
                 <div className="flex justify-between items-center">
                         <span className="text-3xl font-bold text-gray-900 dark:text-gray-900"> ${items.price}</span>
+                        <span>Cantidad restante: {items.stock}</span>   
+
                 </div>
                 { itemCount === 0 ? <ItemCount stock={items.stock} initial="0" onAdd={number}/>  : <ItemCountReplace />} 
                 </div>
