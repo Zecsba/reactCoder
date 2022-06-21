@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router"
 import { firestoreFetchOne } from "../utils/FirestoreFetch"
-import ItemDitail from "./ItemDetail"
+import ItemDitail from "../components/ItemDetail"
 
 
 const ItemDetailContainer = () =>{

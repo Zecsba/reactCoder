@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { firestoreFetch } from "../utils/FirestoreFetch"
-import ItemList from "./ItemList"
+import ItemList from "../components/ItemList"
 
 const ItemListContainer = () =>{
     const [datosProducts, setDatosProducts] = useState([])
@@ -21,7 +21,6 @@ const ItemListContainer = () =>{
 
     return(
         <div className="itemList">
-            <h1>Gola</h1>
             <ItemList items={datosProducts} />
         </div>
     )

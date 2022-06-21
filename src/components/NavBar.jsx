@@ -31,7 +31,7 @@ const NavBar = () => {
           </div>
         </Link>
         <ul className="pt-6">
-            <Link to="/category/101">
+            <Link to="/category/fina">
                 <li className={`flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-300 text-sm items-center gap-x-4`}>
                       <div className="flex">
                         <img src={`./src/assets/home-free-icon-font.png`} className="mr-5 w-5 h-5"/>
@@ -42,7 +42,7 @@ const NavBar = () => {
                 </li>
             </Link>
 
-            <Link to="/category/102">
+            <Link to="/category/rugosa">
                 <li className={`flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-300 text-sm items-center gap-x-4`}>
                     <div className="flex">
                       <img src={`./src/assets/book-free-icon-font.png`} className="mr-5 w-5 h-5"/>
@@ -52,6 +52,9 @@ const NavBar = () => {
                     </div>
                 </li>
             </Link>       
+            <Link to="/leerDatos">
+              <button className="text-white">Agrega un producto</button>
+            </Link>
         </ul>
       </div>
 
