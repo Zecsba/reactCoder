@@ -8,10 +8,10 @@ la libreria Tailwind css
 
 ## Deployment
 
-Para poder corres esta aplicacion usamos: 
+Para poder correr esta aplicacion de React con Vite usamos: 
 
 ```bash
-  npm dev run
+  npm run dev
 ```
 
 
