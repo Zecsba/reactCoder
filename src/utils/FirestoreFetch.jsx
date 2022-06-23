@@ -1,4 +1,4 @@
-import { query, orderBy, where, collection, getDocs } from '@firebase/firestore';
+import { query, where, collection, getDocs } from 'firebase/firestore';
 import { doc, getDoc } from "firebase/firestore";
 import db from './FirebaseConfig';
 
