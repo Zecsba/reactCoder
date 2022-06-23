@@ -3,7 +3,7 @@ import { CartContext } from '../Context/CartContext';
 import Basura from '../icons/Basura';
 import { Link } from 'react-router-dom';
 import { collection, serverTimestamp, setDoc, doc, updateDoc, increment } from 'firebase/firestore';
-import db from '../utils/firebaseConfig';
+import db from '../utils/FirebaseConfig';
 
 const Cart = () =>{
 
