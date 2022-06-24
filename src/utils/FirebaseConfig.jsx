@@ -1,21 +1,19 @@
-import {initializeApp} from 'firebase/app';
-import {getAuth} from 'firebase/auth';
-import {initializeFirestore} from 'firebase/firestore';
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_APP_FIREBASE_APIKEY,
-  authDomain: import.meta.env.VITE_APP_FIREBASE_AUTH_DOMAIN,
-  projectId: import.meta.env.VITE_APP_FIREBASE_PROYECTID,
-  storageBucket: import.meta.env.VITE_APP_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.VITE_APP_FIREBASE_MESSAGE,
-  appId: import.meta.env.VITE_APP_FIREBASE_APPID
+  apiKey: "AIzaSyCwn9_2bRKgvQOzXl_ADVmFGkuJIilEm5I",
+  authDomain: "tiendareact-fdb89.firebaseapp.com",
+  projectId: "tiendareact-fdb89",
+  storageBucket: "tiendareact-fdb89.appspot.com",
+  messagingSenderId: "139740841474",
+  appId: "1:139740841474:web:79d4c64c333bd7d9c3491b"
 };
 
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = initializeFirestore(app, {
-  experimentalForceLongPolling: true,
-});
 
-export default {auth, db};
+const db = getFirestore(app);
+
+export default db;
