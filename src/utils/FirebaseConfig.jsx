@@ -1,5 +1,10 @@
-import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
+// import { initializeApp } from "firebase/app";
+// import { getFirestore } from "firebase/firestore";
+
+import {initializeApp} from 'firebase/app';
+import {getAuth} from 'firebase/auth';
+import {initializeFirestore} from 'firebase/firestore';
+
 
 // Your web app's Firebase configuration
 const FirebaseConfig = {
@@ -12,8 +17,16 @@ const FirebaseConfig = {
 };
 
 // Initialize Firebase
+
+// const app = initializeApp(FirebaseConfig);
+
+// const db = getFirestore(app);
+
+// Initialize Firebase
 const app = initializeApp(FirebaseConfig);
+const auth = getAuth(app);
+const db = initializeFirestore(app, {
+  experimentalForceLongPolling: true,
+});
 
-const db = getFirestore(app);
-
-export default db;
+export default {auth, db};
