@@ -1,6 +1,8 @@
 import { useState } from "react";
 import CartWidget from "./CartWidget";
 import { Link } from "react-router-dom";
+import Casita from "../icons/Casita";
+import Flechita from "../icons/Flecha";
 
 const NavBar = () => {
   const [open, setOpen] = useState(true);
@@ -12,8 +14,8 @@ const NavBar = () => {
           open ? "w-72" : "w-20 "
         } bg-stone-700 h-screen p-5  pt-8 relative duration-300`}
       >
+
         <img
-          src="./src/assets/arrow_left.png"
           className={`absolute cursor-pointer -right-3 top-9 w-7 border-dark-purple
            border-2 rounded-full  ${!open && "rotate-180"}`}
           onClick={() => setOpen(!open)}
@@ -34,7 +36,8 @@ const NavBar = () => {
             <Link to="/category/fina">
                 <li className={`flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-300 text-sm items-center gap-x-4`}>
                       <div className="flex">
-                        <img src={`./src/assets/home-free-icon-font.png`} className="mr-5 w-5 h-5"/>
+                        {/* <img src={`./src/assets/home-free-icon-font.png`} className="mr-5 w-5 h-5"/> */}
+                        <Casita></Casita>
                         <span className={`${!open && "hidden"} origin-left duration-200 text-base`}>
                           Sedas Finas               
                         </span>
