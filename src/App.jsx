@@ -9,8 +9,7 @@ import LeerDatos from "./subirDatos/LeerDatos";
 const App = () => {
   return (
     <CartContextProvider>
-      <BrowserRouter>
-        <div className='flex'>
+      <BrowserRouter>     
               <NavBar/>
               <Routes>
                 <Route path='/' element={<ItemListContainer/>} />
@@ -18,8 +17,7 @@ const App = () => {
                 <Route path='/item/:id' element={<ItemDetailContainer/>} />
                 <Route path="/cart" element={<Cart />}/>
                 <Route path="/leerDatos" element={<LeerDatos />}/>
-              </Routes>
-        </div>
+              </Routes> 
       </BrowserRouter>
     </CartContextProvider>
   );
