@@ -76,7 +76,7 @@ const Cart = () =>{
 
             {test.cartList.length > 0 && 
             
-            <div className="bg-slate-300 mx-auto my-20 p-3 rounded-md flex flex-col w-2/12">
+            <div className="bg-slate-300 mx-auto my-20 p-3 rounded-md flex flex-col sm:w-2/12">
                 <div className='p-1'>
                     <span className='uppercase font-medium '>Total:</span> <span>$</span> {test.sumaTotalProduct()}
                 </div>
