@@ -49,12 +49,11 @@ const Cart = () =>{
     }
 
     return(
-        <div className='w-full md:h-[60rem] overflow-y-auto flex flex-col'>
-
+        <div className='flex flex-col'>
 
             {test.cartList.length > 0 && test.cartList.map((item) => 
 
-            <div key={item.idItem} className="flex flex-col md:flex-row bg-slate-300 rounded-lg m-5 md:w-4/12 sm:w-3/12">
+            <div key={item.idItem} className="flex flex-col md:flex-row bg-slate-300 rounded-lg m-5 md:w-4/12 sm:w-5/12 sm:m-auto sm:mt-5">
 
                     <div className='p-2 mt-1 mx-2 '>
                         <img className="mb-3 w-24 m-auto h-24 rounded-full shadow-lg" src={item.imgItem}/>
@@ -64,7 +63,7 @@ const Cart = () =>{
                         <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white text-center md:text-left">{item.titleItem}</h5>
                         <span className='text-center'>Precio: <span className='tracking-wide'>{item.priceItem}</span></span>
                         <span className='text-center'>Cantidad solicitada: {item.cantidadItem}</span>
-                        <p className='tracking-wide'>Total: {test.sumaProducts(item.idItem)}</p>
+                        <p className='tracking-wide text-center'>Total: {test.sumaProducts(item.idItem)}</p>
                     </div>
                     
                     
@@ -77,9 +76,9 @@ const Cart = () =>{
 
             {test.cartList.length > 0 && 
             
-            <div className="bg-slate-300 absolute right-0 m-20 p-5 rounded-md flex flex-col">
+            <div className="bg-slate-300 mx-auto my-20 p-3 rounded-md flex flex-col w-2/12">
                 <div className='p-1'>
-                    <span className='uppercase font-medium'>Total:</span> {test.sumaTotalProduct()}
+                    <span className='uppercase font-medium '>Total:</span> <span>$</span> {test.sumaTotalProduct()}
                 </div>
 
                 <button className='p-2 bg-blue-700 text-white rounded-lg' onClick={createOrder}>¡Comprar!</button>

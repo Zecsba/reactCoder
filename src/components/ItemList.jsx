@@ -3,7 +3,7 @@ import Item from './Item'
 
 const ItemList = ({items}) =>{
     return(
-        <div className="flex justify-center flex-wrap h-[55rem] md:h-[55rem] lg:h-[59rem] overflow-y-auto">
+        <div className="flex justify-center flex-wrap ">
             { items.length > 0
                 ? items.map(item => 
                     <Item
